@@ -26,4 +26,30 @@ public class MovieServiceImp implements MoviesService {
         return moviesRepository.findById(id);
     }
     
+    @Override
+    public Movies postMovie(Movies movie)
+    {
+        return moviesRepository.save(movie);
+    }
+
+    @Override
+    public Movies putMovie(int id, Movies movie)
+    {
+        if(moviesRepository.existsById(id))
+        {
+            movie.setId(id);
+            return moviesRepository.save(movie);
+        }
+        else{
+            return null;
+        }
+        
+    }
+
+    @Override
+    public void deleteMovie(int id)
+    {
+        moviesRepository.deleteById(id);
+    }
+    
 }
