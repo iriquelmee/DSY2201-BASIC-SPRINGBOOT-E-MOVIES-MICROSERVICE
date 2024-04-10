@@ -42,7 +42,7 @@ public class MoviesController {
         return moviesService.postMovie(movie);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public Movies putMovies(@PathVariable int id, @RequestBody Movies movie)
     {
         return moviesService.putMovie(id,movie);
